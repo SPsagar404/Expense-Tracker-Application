@@ -1,0 +1,501 @@
+amount,merchant,category,date,notes
+68.79,Nordstrom,Education,2024-11-02,Gift
+453.05,Apple Store,Transportation,2025-03-05,One-time expense
+288.77,Uber,Education,2025-01-15,Emergency expense
+13.07,Costco,Groceries,2025-09-12,Gift
+477.28,Walmart,Personal,2024-10-23,Weekly purchase
+472.69,Airbnb,Healthcare,2025-07-17,Weekly purchase
+258.52,PetSmart,Housing,2025-06-27,Gift
+29.54,Grubhub,Healthcare,2025-04-03,Weekly purchase
+278.37,Shell Gas,Groceries,2024-05-18,Impulse buy
+448.24,PetSmart,Food,2025-01-09,
+364.35,Amazon,Groceries,2025-07-15,Weekly purchase
+44.03,IKEA,Groceries,2025-04-06,Weekly purchase
+184.13,Costco,Entertainment,2025-05-11,Gift
+169.41,H&M,Housing,2024-03-21,Planned purchase
+77.66,Apple Store,Subscriptions,2024-10-08,Impulse buy
+344.35,Grubhub,Groceries,2025-11-06,Impulse buy
+66.40,Walgreens,Transportation,2025-10-03,Monthly bill
+227.10,Costco,Personal,2024-04-16,Monthly bill
+333.96,Dominos,Personal,2025-02-22,Recurring charge
+400.60,Hilton Hotels,Personal,2024-05-03,Monthly bill
+193.19,Delta Airlines,Food,2025-05-01,Gift
+192.53,Netflix,Education,2025-06-01,Weekly purchase
+350.72,Electric Co,Travel,2025-01-13,Impulse buy
+188.22,Blue Cross Health,Travel,2025-08-26,Regular payment
+137.24,Starbucks,Travel,2025-06-20,Emergency expense
+298.83,Apple Store,Utilities,2024-06-17,
+365.85,Electric Co,Subscriptions,2024-01-15,Weekly purchase
+303.74,CVS Pharmacy,Personal,2024-01-25,Gift
+244.93,Verizon,Healthcare,2025-04-05,
+128.45,Lyft,Housing,2025-09-01,One-time expense
+121.40,DoorDash,Shopping,2025-05-12,Weekly purchase
+426.40,Shell Gas,Food,2025-04-20,Emergency expense
+488.93,Netflix,Healthcare,2024-12-02,
+336.06,PetSmart,Utilities,2025-12-12,Monthly bill
+68.01,Microsoft,Housing,2025-05-09,Regular payment
+150.38,Lyft,Shopping,2024-05-06,
+331.42,Zara,Housing,2025-01-28,Emergency expense
+465.67,Rent Payment,Healthcare,2024-02-12,Planned purchase
+432.57,McDonalds,Entertainment,2025-05-28,Monthly bill
+38.58,Costco,Entertainment,2025-02-01,Emergency expense
+249.74,Home Depot,Personal,2025-06-26,One-time expense
+274.00,Dental Care,Travel,2024-11-20,Weekly purchase
+176.96,Planet Fitness,Housing,2025-10-19,Regular payment
+106.72,Whole Foods,Personal,2025-07-07,Impulse buy
+134.04,Blue Cross Health,Food,2025-04-16,Gift
+291.45,Planet Fitness,Personal,2025-09-10,Gift
+23.39,Delta Airlines,Education,2025-03-26,Monthly bill
+205.25,Target,Shopping,2025-10-20,Impulse buy
+127.43,Starbucks,Groceries,2025-07-09,Monthly bill
+309.15,Comcast Internet,Transportation,2024-06-18,Recurring charge
+19.10,Blue Cross Health,Healthcare,2025-01-17,Recurring charge
+119.46,Whole Foods,Transportation,2024-07-13,
+198.80,Dominos,Food,2024-05-22,Emergency expense
+99.56,Home Depot,Subscriptions,2024-08-11,Regular payment
+51.73,Amazon,Shopping,2025-02-03,One-time expense
+374.64,State Farm Insurance,Personal,2025-06-19,Gift
+353.28,Uber,Healthcare,2024-02-12,
+454.22,DoorDash,Subscriptions,2025-02-11,Recurring charge
+437.75,Walmart,Entertainment,2024-03-28,Gift
+367.73,Planet Fitness,Entertainment,2025-03-07,Monthly bill
+192.57,Lyft,Subscriptions,2025-04-12,Monthly bill
+210.17,Home Depot,Shopping,2025-09-20,Emergency expense
+63.85,AT&T,Food,2025-01-01,Weekly purchase
+173.66,Delta Airlines,Subscriptions,2025-11-17,Planned purchase
+301.88,Delta Airlines,Personal,2024-03-25,Gift
+128.40,Water Utility,Personal,2025-05-20,Monthly bill
+173.37,AT&T,Housing,2025-02-21,Regular payment
+493.81,Starbucks,Entertainment,2025-02-07,Monthly bill
+215.95,Water Utility,Healthcare,2025-04-03,Gift
+106.32,Verizon,Subscriptions,2025-05-09,Emergency expense
+341.30,Hilton Hotels,Food,2025-05-14,Emergency expense
+429.16,Comcast Internet,Transportation,2024-11-19,Gift
+154.48,Delta Airlines,Education,2025-09-10,Regular payment
+423.21,Apple Store,Education,2025-03-15,Recurring charge
+462.03,AT&T,Entertainment,2025-03-20,One-time expense
+339.88,Hilton Hotels,Shopping,2024-07-17,Regular payment
+485.72,T-Mobile,Healthcare,2025-06-15,Recurring charge
+59.41,City Hospital,Shopping,2024-04-04,One-time expense
+482.34,Chipotle,Utilities,2025-07-24,Recurring charge
+352.71,Spotify,Personal,2025-10-06,Emergency expense
+17.72,Apple Store,Housing,2025-03-28,Planned purchase
+152.76,Microsoft,Personal,2024-09-15,Recurring charge
+487.91,Zara,Groceries,2025-10-19,Monthly bill
+9.94,IKEA,Subscriptions,2024-04-22,Regular payment
+366.92,Dental Care,Utilities,2025-01-13,Regular payment
+281.66,Planet Fitness,Entertainment,2025-09-21,One-time expense
+452.45,Uber,Transportation,2025-06-17,Emergency expense
+175.00,PetSmart,Utilities,2024-07-16,Monthly bill
+134.31,State Farm Insurance,Groceries,2024-11-12,Recurring charge
+237.81,Home Depot,Subscriptions,2025-11-09,One-time expense
+41.69,Best Buy,Transportation,2025-08-08,Emergency expense
+389.92,Blue Cross Health,Groceries,2025-01-12,Planned purchase
+390.37,Google Play,Groceries,2025-03-21,Monthly bill
+188.87,Nordstrom,Transportation,2025-06-05,One-time expense
+186.19,Adobe,Personal,2025-09-09,Monthly bill
+418.91,Chipotle,Education,2025-06-23,Impulse buy
+184.03,Google Play,Education,2025-04-14,Monthly bill
+440.85,Lyft,Healthcare,2025-10-16,Planned purchase
+465.90,Starbucks,Utilities,2025-12-16,Gift
+267.12,Grubhub,Shopping,2025-10-06,Emergency expense
+161.21,State Farm Insurance,Entertainment,2024-11-07,Regular payment
+417.25,Shell Gas,Housing,2025-09-10,One-time expense
+68.51,IKEA,Personal,2025-10-23,Gift
+234.64,McDonalds,Entertainment,2025-08-15,Impulse buy
+103.15,AT&T,Entertainment,2025-05-26,Regular payment
+318.39,Planet Fitness,Education,2025-09-13,Weekly purchase
+150.69,Nordstrom,Utilities,2025-07-14,Monthly bill
+449.68,Electric Co,Utilities,2025-09-26,Recurring charge
+281.34,Verizon,Education,2025-03-28,Planned purchase
+403.39,Lyft,Food,2025-12-22,
+477.84,City Hospital,Education,2024-11-20,Recurring charge
+91.95,CVS Pharmacy,Entertainment,2025-07-22,
+182.00,Nike,Healthcare,2025-08-16,Emergency expense
+125.54,Home Depot,Healthcare,2025-06-19,Weekly purchase
+110.47,Costco,Entertainment,2025-12-16,Emergency expense
+214.03,City Tax Office,Education,2025-12-23,Monthly bill
+422.38,IKEA,Utilities,2025-08-13,Regular payment
+250.75,Verizon,Subscriptions,2024-03-27,Emergency expense
+295.24,Airbnb,Healthcare,2025-10-25,Weekly purchase
+461.72,City Tax Office,Education,2025-10-11,Regular payment
+154.70,Delta Airlines,Food,2025-06-20,Regular payment
+120.00,Delta Airlines,Transportation,2024-03-19,Impulse buy
+395.57,Walgreens,Groceries,2024-11-18,Impulse buy
+263.23,CVS Pharmacy,Food,2025-05-28,Monthly bill
+467.39,T-Mobile,Subscriptions,2024-01-13,One-time expense
+322.71,PetSmart,Shopping,2025-07-14,Weekly purchase
+494.67,Walmart,Healthcare,2025-02-22,Monthly bill
+432.51,Spotify,Food,2025-12-26,
+415.26,City Tax Office,Healthcare,2025-09-25,Regular payment
+490.51,Delta Airlines,Education,2025-08-20,Impulse buy
+484.32,City Tax Office,Education,2025-04-24,Monthly bill
+129.35,H&M,Groceries,2024-02-20,Impulse buy
+282.33,Shell Gas,Personal,2025-08-06,Monthly bill
+257.92,Amazon,Healthcare,2025-05-05,Gift
+168.94,Comcast Internet,Utilities,2025-01-05,Recurring charge
+336.71,Spotify,Groceries,2025-02-07,Planned purchase
+32.56,State Farm Insurance,Housing,2025-10-10,Monthly bill
+326.22,Best Buy,Food,2025-09-15,Regular payment
+115.58,Verizon,Education,2025-01-17,Monthly bill
+393.29,Mortgage Co,Groceries,2024-10-27,Impulse buy
+18.73,Spotify,Housing,2024-11-12,One-time expense
+402.58,McDonalds,Shopping,2025-05-17,One-time expense
+285.03,Walgreens,Subscriptions,2025-09-16,One-time expense
+341.99,Delta Airlines,Education,2025-07-04,Regular payment
+216.39,Microsoft,Transportation,2024-04-23,Impulse buy
+76.07,Amazon,Healthcare,2025-10-24,Gift
+263.20,Amazon,Entertainment,2025-06-25,Recurring charge
+370.12,Lyft,Education,2025-04-03,Weekly purchase
+103.66,Target,Shopping,2025-09-17,Impulse buy
+230.79,H&M,Personal,2025-03-09,Gift
+270.69,CVS Pharmacy,Housing,2025-07-20,Emergency expense
+194.41,Grubhub,Education,2025-01-13,Gift
+94.67,Comcast Internet,Education,2025-11-15,Monthly bill
+477.74,Spotify,Housing,2025-05-21,Emergency expense
+212.86,Microsoft,Shopping,2025-01-24,
+113.84,Spotify,Transportation,2025-09-25,Planned purchase
+425.86,Starbucks,Entertainment,2025-11-04,Regular payment
+56.98,Netflix,Personal,2025-12-08,Regular payment
+269.08,H&M,Groceries,2025-05-18,Impulse buy
+135.67,Lyft,Entertainment,2024-04-10,
+353.19,Microsoft,Subscriptions,2025-08-08,Monthly bill
+146.92,Chipotle,Personal,2024-06-11,Emergency expense
+210.30,Nordstrom,Utilities,2025-11-25,Monthly bill
+273.40,Adobe,Education,2025-09-24,Recurring charge
+147.36,Delta Airlines,Personal,2024-04-04,One-time expense
+439.76,Walgreens,Travel,2025-09-17,Impulse buy
+15.38,Adobe,Subscriptions,2025-09-25,Monthly bill
+69.13,Rent Payment,Personal,2024-05-14,
+245.52,Apple Store,Subscriptions,2024-08-16,
+169.59,Spotify,Healthcare,2024-02-24,Planned purchase
+241.44,Spotify,Subscriptions,2024-11-22,Emergency expense
+188.45,McDonalds,Personal,2025-03-03,Planned purchase
+99.75,PetSmart,Entertainment,2025-03-25,Gift
+207.90,Google Play,Transportation,2024-04-28,One-time expense
+431.08,H&M,Travel,2025-01-24,Planned purchase
+214.13,Mortgage Co,Food,2025-10-13,One-time expense
+263.97,Google Play,Food,2024-11-21,Gift
+164.89,Google Play,Housing,2025-01-04,Impulse buy
+172.18,Walgreens,Food,2025-11-17,Weekly purchase
+76.17,Electric Co,Food,2025-12-28,Planned purchase
+395.28,City Hospital,Shopping,2025-01-21,Gift
+450.78,Costco,Utilities,2024-12-08,Emergency expense
+493.89,Dental Care,Housing,2024-10-07,
+252.90,Netflix,Transportation,2025-08-10,Weekly purchase
+229.79,IKEA,Groceries,2025-02-02,
+140.42,City Tax Office,Entertainment,2025-04-12,Impulse buy
+20.57,State Farm Insurance,Shopping,2024-06-17,Regular payment
+117.06,PetSmart,Groceries,2025-12-17,Recurring charge
+195.75,Delta Airlines,Transportation,2025-05-20,Emergency expense
+185.41,Microsoft,Housing,2024-10-14,Weekly purchase
+82.22,AT&T,Shopping,2025-01-16,Recurring charge
+231.59,Water Utility,Food,2025-05-15,Gift
+170.82,Chipotle,Subscriptions,2024-02-24,Planned purchase
+79.60,City Tax Office,Shopping,2025-01-13,Emergency expense
+103.96,Blue Cross Health,Food,2025-12-18,Impulse buy
+73.24,Best Buy,Groceries,2024-05-18,Monthly bill
+320.04,Netflix,Travel,2025-03-01,Regular payment
+470.91,Walmart,Entertainment,2025-03-07,Recurring charge
+86.05,Spotify,Healthcare,2025-10-17,Recurring charge
+489.68,City Tax Office,Utilities,2025-10-17,Recurring charge
+390.70,Dental Care,Food,2024-01-16,Emergency expense
+171.10,Dental Care,Utilities,2025-09-16,Monthly bill
+438.98,CVS Pharmacy,Utilities,2025-09-11,
+113.87,H&M,Groceries,2025-09-22,Weekly purchase
+285.20,Zara,Shopping,2024-09-08,One-time expense
+193.49,Target,Personal,2025-06-28,Regular payment
+38.87,Hilton Hotels,Education,2025-11-20,Gift
+253.63,State Farm Insurance,Healthcare,2025-04-08,Gift
+79.46,IKEA,Subscriptions,2024-11-03,Recurring charge
+369.58,DoorDash,Shopping,2025-09-09,
+56.13,AT&T,Housing,2025-03-27,Weekly purchase
+201.10,Chipotle,Utilities,2025-06-27,Impulse buy
+221.75,Starbucks,Food,2025-01-17,Emergency expense
+293.97,IKEA,Entertainment,2024-04-01,One-time expense
+35.54,Dropbox,Shopping,2025-10-16,One-time expense
+407.92,Chipotle,Housing,2024-09-03,Weekly purchase
+122.20,Costco,Travel,2025-07-25,One-time expense
+14.87,Chipotle,Food,2025-09-25,
+266.62,Google Play,Transportation,2024-12-12,Regular payment
+119.45,Target,Shopping,2024-09-18,One-time expense
+473.37,DoorDash,Shopping,2025-07-17,Gift
+36.00,Comcast Internet,Entertainment,2025-01-01,Gift
+72.23,H&M,Education,2024-07-28,Weekly purchase
+364.78,Walmart,Healthcare,2024-05-08,Regular payment
+144.37,Verizon,Entertainment,2025-06-05,Weekly purchase
+183.95,Home Depot,Food,2025-01-04,Gift
+81.18,Starbucks,Travel,2025-05-04,Planned purchase
+207.86,DoorDash,Subscriptions,2025-08-27,Impulse buy
+108.93,T-Mobile,Food,2025-01-28,Gift
+65.96,AT&T,Healthcare,2025-11-15,Weekly purchase
+143.45,Trader Joes,Transportation,2024-07-16,Monthly bill
+310.49,DoorDash,Personal,2025-01-21,Recurring charge
+398.29,Uber,Travel,2025-03-06,Monthly bill
+175.40,Best Buy,Food,2025-03-14,Regular payment
+251.56,Dental Care,Healthcare,2025-04-06,Weekly purchase
+315.99,Dominos,Transportation,2025-03-09,Weekly purchase
+349.48,Dropbox,Travel,2025-09-11,
+336.55,Best Buy,Education,2025-03-01,Monthly bill
+190.99,Hilton Hotels,Education,2024-05-10,Gift
+53.42,Microsoft,Transportation,2025-03-28,Monthly bill
+37.35,PetSmart,Food,2025-08-22,Recurring charge
+346.56,Apple Store,Groceries,2025-01-07,Emergency expense
+409.13,Whole Foods,Shopping,2025-04-20,Impulse buy
+248.84,Target,Subscriptions,2025-03-17,One-time expense
+335.10,Spotify,Education,2025-04-15,Emergency expense
+353.19,Trader Joes,Personal,2025-09-11,Weekly purchase
+203.41,Walgreens,Utilities,2025-06-24,
+13.55,Uber,Travel,2025-07-03,Recurring charge
+401.13,Netflix,Transportation,2025-04-01,Gift
+460.02,Spotify,Food,2025-10-02,
+414.67,Costco,Transportation,2025-02-09,Recurring charge
+349.77,Lyft,Entertainment,2025-11-28,Regular payment
+150.08,Walmart,Entertainment,2025-05-04,Planned purchase
+341.55,DoorDash,Food,2024-07-08,Emergency expense
+66.96,Walmart,Travel,2025-05-22,
+227.82,Comcast Internet,Housing,2025-09-23,
+136.95,Chipotle,Subscriptions,2025-10-21,Gift
+125.74,Best Buy,Groceries,2024-04-04,One-time expense
+13.59,Spotify,Groceries,2025-03-01,Impulse buy
+243.53,Home Depot,Travel,2025-09-17,Regular payment
+470.57,Water Utility,Travel,2025-10-24,
+113.56,Water Utility,Travel,2024-05-25,
+197.71,Nordstrom,Personal,2025-07-10,Impulse buy
+346.28,Blue Cross Health,Housing,2025-11-04,Weekly purchase
+158.66,Amazon,Entertainment,2025-03-06,Recurring charge
+487.73,Dominos,Healthcare,2025-07-14,Impulse buy
+389.93,Electric Co,Personal,2024-08-26,Planned purchase
+74.10,City Hospital,Subscriptions,2025-07-05,Monthly bill
+486.50,H&M,Travel,2025-01-14,Monthly bill
+395.02,Water Utility,Subscriptions,2024-05-22,One-time expense
+388.63,Blue Cross Health,Education,2024-12-18,
+350.21,Microsoft,Groceries,2025-07-17,Planned purchase
+181.39,City Hospital,Personal,2025-10-20,Regular payment
+34.69,Starbucks,Personal,2025-02-05,
+197.65,T-Mobile,Utilities,2024-10-04,
+401.63,Comcast Internet,Shopping,2025-01-06,
+208.03,Shell Gas,Groceries,2024-06-26,Planned purchase
+394.79,Whole Foods,Travel,2025-09-25,Planned purchase
+423.75,Whole Foods,Shopping,2025-01-05,Emergency expense
+425.08,Nike,Shopping,2025-09-17,Weekly purchase
+160.63,Spotify,Groceries,2025-02-15,One-time expense
+69.59,Costco,Housing,2025-07-04,
+32.01,Netflix,Housing,2024-02-13,Monthly bill
+183.28,Shell Gas,Subscriptions,2025-02-10,Emergency expense
+356.63,Spotify,Healthcare,2025-07-14,One-time expense
+173.09,Dropbox,Personal,2024-03-24,
+399.22,PetSmart,Personal,2024-05-26,Gift
+387.31,DoorDash,Groceries,2025-07-21,Gift
+209.96,City Hospital,Housing,2024-12-26,Weekly purchase
+204.25,Netflix,Travel,2024-01-25,Emergency expense
+80.96,Hilton Hotels,Education,2025-11-08,Emergency expense
+382.64,Delta Airlines,Healthcare,2025-12-23,Recurring charge
+197.65,Chipotle,Shopping,2025-05-16,Regular payment
+84.42,Chipotle,Groceries,2025-06-24,
+420.90,State Farm Insurance,Food,2025-01-13,Impulse buy
+191.06,T-Mobile,Education,2025-07-17,Emergency expense
+329.20,Apple Store,Entertainment,2025-11-07,Emergency expense
+164.72,Hilton Hotels,Healthcare,2025-03-19,Weekly purchase
+311.71,Target,Entertainment,2025-04-18,
+383.73,H&M,Shopping,2025-05-12,Weekly purchase
+475.60,Shell Gas,Transportation,2024-11-07,Gift
+269.98,State Farm Insurance,Food,2025-06-23,Planned purchase
+405.71,Netflix,Utilities,2025-07-10,Monthly bill
+44.50,Target,Groceries,2025-09-28,Emergency expense
+265.76,Planet Fitness,Transportation,2025-03-21,Regular payment
+21.13,Google Play,Groceries,2025-01-19,Regular payment
+349.29,Verizon,Housing,2025-07-19,Gift
+494.64,Electric Co,Healthcare,2025-10-13,Monthly bill
+109.07,Netflix,Utilities,2024-01-23,Impulse buy
+344.93,T-Mobile,Personal,2024-04-17,One-time expense
+221.26,City Hospital,Subscriptions,2024-02-11,Emergency expense
+343.43,H&M,Subscriptions,2024-10-22,Monthly bill
+244.12,Dental Care,Subscriptions,2025-01-10,Weekly purchase
+448.88,AT&T,Housing,2024-12-23,One-time expense
+132.34,Adobe,Groceries,2024-01-23,
+409.46,Planet Fitness,Subscriptions,2025-06-28,Impulse buy
+426.27,Best Buy,Groceries,2025-03-11,Weekly purchase
+151.74,Target,Subscriptions,2025-06-18,Gift
+336.77,Chipotle,Travel,2025-02-17,Monthly bill
+6.91,Home Depot,Utilities,2025-04-06,Emergency expense
+33.35,Grubhub,Healthcare,2025-01-17,Planned purchase
+52.98,Microsoft,Education,2024-02-07,Recurring charge
+389.33,Grubhub,Personal,2025-01-28,Recurring charge
+207.13,Delta Airlines,Housing,2025-09-05,Impulse buy
+347.36,Lyft,Travel,2025-04-25,
+6.77,Shell Gas,Entertainment,2025-07-11,Emergency expense
+259.70,Dental Care,Housing,2025-06-26,Weekly purchase
+320.60,Starbucks,Groceries,2025-07-01,One-time expense
+32.10,Target,Entertainment,2025-05-01,Regular payment
+406.74,Nike,Groceries,2024-05-20,Emergency expense
+335.64,Blue Cross Health,Shopping,2025-12-01,Planned purchase
+327.20,Google Play,Education,2025-08-27,Monthly bill
+34.95,Nordstrom,Entertainment,2025-03-15,One-time expense
+406.04,Netflix,Food,2025-08-18,Planned purchase
+106.77,Hilton Hotels,Personal,2025-09-14,
+370.62,DoorDash,Travel,2025-02-09,Regular payment
+249.08,Verizon,Housing,2025-08-20,Monthly bill
+421.88,Nordstrom,Education,2024-12-07,Impulse buy
+403.32,Rent Payment,Food,2025-12-22,Recurring charge
+490.62,Uber,Utilities,2025-08-27,Weekly purchase
+176.06,Walgreens,Utilities,2025-05-13,One-time expense
+192.83,Nordstrom,Entertainment,2025-09-14,Impulse buy
+389.43,City Hospital,Housing,2025-01-26,Monthly bill
+145.05,Rent Payment,Groceries,2025-01-16,Emergency expense
+230.14,Planet Fitness,Transportation,2025-10-27,Monthly bill
+451.02,CVS Pharmacy,Food,2025-01-27,Gift
+36.57,Dropbox,Housing,2024-03-23,Gift
+96.09,CVS Pharmacy,Personal,2025-04-28,Monthly bill
+305.36,Rent Payment,Transportation,2025-09-13,One-time expense
+440.68,City Hospital,Housing,2025-04-05,Impulse buy
+280.93,Home Depot,Subscriptions,2025-04-20,Weekly purchase
+146.08,Nordstrom,Groceries,2025-08-27,Emergency expense
+299.66,H&M,Groceries,2025-01-05,Weekly purchase
+464.96,Adobe,Education,2025-02-01,Impulse buy
+254.81,Walmart,Shopping,2025-01-18,Gift
+364.05,Nordstrom,Subscriptions,2025-07-11,Emergency expense
+169.93,Blue Cross Health,Subscriptions,2025-09-28,Impulse buy
+395.71,Adobe,Utilities,2024-11-08,Impulse buy
+476.73,Lyft,Subscriptions,2025-04-11,Impulse buy
+381.58,CVS Pharmacy,Utilities,2025-05-02,
+386.48,Dental Care,Travel,2025-03-16,Emergency expense
+352.70,Nike,Utilities,2024-03-03,Gift
+365.03,AT&T,Shopping,2024-05-05,Regular payment
+384.98,Nike,Food,2025-02-18,Monthly bill
+245.12,Delta Airlines,Housing,2025-06-18,Regular payment
+165.08,Microsoft,Personal,2025-07-07,Planned purchase
+113.13,Airbnb,Travel,2025-10-05,
+103.97,Shell Gas,Groceries,2025-01-17,Gift
+212.49,Dental Care,Entertainment,2025-11-06,Recurring charge
+159.18,Uber,Shopping,2024-11-07,One-time expense
+222.02,Whole Foods,Education,2025-12-19,One-time expense
+98.18,Spotify,Shopping,2025-01-19,Planned purchase
+443.94,Grubhub,Food,2025-03-08,Regular payment
+419.68,Apple Store,Entertainment,2025-10-14,Weekly purchase
+224.53,Starbucks,Education,2025-06-21,Regular payment
+395.15,Dominos,Groceries,2025-11-06,Regular payment
+385.57,Adobe,Personal,2024-10-13,Planned purchase
+189.83,Chipotle,Education,2024-05-03,Recurring charge
+159.31,State Farm Insurance,Subscriptions,2025-05-10,Recurring charge
+150.11,Uber,Subscriptions,2025-10-16,Monthly bill
+41.38,Grubhub,Entertainment,2025-11-02,
+359.56,Target,Travel,2025-10-04,Impulse buy
+43.07,Amazon,Groceries,2024-11-05,Impulse buy
+116.28,AT&T,Personal,2024-06-10,Recurring charge
+151.76,Trader Joes,Shopping,2025-08-18,Gift
+400.13,Home Depot,Entertainment,2024-08-21,Gift
+466.82,Nordstrom,Shopping,2024-06-15,Weekly purchase
+101.76,Airbnb,Education,2024-05-19,Monthly bill
+312.10,Walmart,Utilities,2024-10-11,Emergency expense
+374.94,Spotify,Transportation,2024-12-12,Monthly bill
+288.34,AT&T,Groceries,2025-02-14,Gift
+112.93,Walmart,Travel,2024-04-09,Recurring charge
+488.40,City Hospital,Personal,2025-12-21,Recurring charge
+120.39,Starbucks,Shopping,2024-01-01,Impulse buy
+334.28,Sephora,Shopping,2024-11-09,Emergency expense
+17.67,Dominos,Healthcare,2025-06-09,Impulse buy
+196.87,Home Depot,Groceries,2025-06-20,Weekly purchase
+285.82,Walmart,Subscriptions,2024-06-09,Regular payment
+232.66,State Farm Insurance,Personal,2025-05-15,Recurring charge
+392.74,Zara,Healthcare,2025-02-23,Monthly bill
+316.73,Water Utility,Food,2025-01-07,
+355.34,Spotify,Transportation,2025-07-14,Impulse buy
+353.66,Best Buy,Travel,2024-05-18,Monthly bill
+461.56,Apple Store,Entertainment,2024-05-07,Recurring charge
+42.03,Amazon,Healthcare,2025-01-27,
+388.37,Best Buy,Travel,2025-10-17,Monthly bill
+55.62,Target,Travel,2025-05-25,
+259.17,Blue Cross Health,Groceries,2025-08-07,Impulse buy
+83.20,Zara,Healthcare,2025-01-10,Weekly purchase
+191.15,Apple Store,Education,2024-12-28,Planned purchase
+415.78,T-Mobile,Groceries,2025-01-06,Emergency expense
+343.89,Sephora,Personal,2025-12-08,Emergency expense
+244.15,Home Depot,Travel,2025-08-09,
+318.58,Sephora,Groceries,2025-04-16,One-time expense
+89.33,Chipotle,Personal,2025-09-05,Impulse buy
+316.19,City Tax Office,Travel,2024-06-26,
+402.23,Best Buy,Housing,2025-03-06,Regular payment
+239.80,Dropbox,Housing,2025-01-23,Planned purchase
+66.90,City Tax Office,Groceries,2025-06-28,Gift
+100.01,Comcast Internet,Personal,2025-10-14,Weekly purchase
+344.16,Nordstrom,Healthcare,2024-02-20,Emergency expense
+471.40,Nordstrom,Utilities,2025-02-23,Monthly bill
+83.39,Sephora,Entertainment,2024-06-16,Monthly bill
+174.00,Hilton Hotels,Entertainment,2025-11-09,Weekly purchase
+413.03,T-Mobile,Entertainment,2025-06-21,
+105.06,State Farm Insurance,Utilities,2025-03-27,Gift
+23.38,Dominos,Shopping,2024-03-08,
+90.41,Microsoft,Groceries,2024-08-09,
+188.86,Target,Entertainment,2025-03-02,Impulse buy
+180.49,Best Buy,Personal,2025-07-22,Emergency expense
+186.82,Nordstrom,Food,2024-12-13,One-time expense
+437.02,H&M,Utilities,2024-12-06,Regular payment
+169.46,Delta Airlines,Entertainment,2024-06-18,Weekly purchase
+93.58,Microsoft,Shopping,2024-11-14,Planned purchase
+416.99,Delta Airlines,Transportation,2025-09-21,Weekly purchase
+83.80,Shell Gas,Personal,2025-06-17,Emergency expense
+372.15,Nordstrom,Education,2025-09-14,Weekly purchase
+476.29,Whole Foods,Utilities,2025-08-10,Emergency expense
+353.13,Airbnb,Education,2025-12-15,Emergency expense
+213.89,Grubhub,Travel,2024-01-11,Weekly purchase
+216.10,PetSmart,Travel,2025-05-05,Weekly purchase
+268.07,Mortgage Co,Food,2025-04-19,Regular payment
+72.02,Mortgage Co,Shopping,2025-12-19,
+278.66,Airbnb,Shopping,2025-09-17,Recurring charge
+162.91,Apple Store,Groceries,2025-08-27,One-time expense
+238.56,Starbucks,Travel,2025-05-01,Planned purchase
+431.43,Comcast Internet,Subscriptions,2024-06-09,Regular payment
+100.00,Whole Foods,Personal,2025-02-05,Emergency expense
+477.20,Sephora,Travel,2025-11-20,Regular payment
+274.06,T-Mobile,Travel,2025-12-12,Recurring charge
+94.54,Walmart,Entertainment,2025-07-27,Monthly bill
+154.17,Apple Store,Housing,2025-06-27,One-time expense
+171.68,Hilton Hotels,Transportation,2025-02-07,Weekly purchase
+119.87,Rent Payment,Transportation,2025-08-18,Weekly purchase
+232.66,PetSmart,Personal,2024-09-19,Weekly purchase
+336.65,Nordstrom,Travel,2025-04-11,Planned purchase
+72.24,Planet Fitness,Education,2025-05-27,Emergency expense
+243.71,Chipotle,Utilities,2025-01-13,Monthly bill
+209.26,Planet Fitness,Travel,2024-02-10,Planned purchase
+29.11,Rent Payment,Education,2025-08-26,Gift
+80.92,Whole Foods,Travel,2024-02-04,Emergency expense
+124.22,Starbucks,Shopping,2025-06-10,One-time expense
+242.68,Dropbox,Travel,2025-12-04,Impulse buy
+143.08,Lyft,Subscriptions,2025-03-01,Emergency expense
+337.92,City Tax Office,Personal,2025-05-18,Weekly purchase
+396.42,Starbucks,Subscriptions,2025-10-05,Impulse buy
+373.42,State Farm Insurance,Healthcare,2024-09-23,Gift
+482.26,Electric Co,Personal,2025-01-21,Weekly purchase
+433.14,Nordstrom,Personal,2025-07-13,Gift
+259.87,Costco,Housing,2024-05-14,Impulse buy
+176.92,Apple Store,Shopping,2024-03-25,Monthly bill
+168.78,Lyft,Travel,2024-11-14,Gift
+329.46,IKEA,Food,2024-03-05,Regular payment
+272.16,Walgreens,Groceries,2024-03-07,Regular payment
+194.62,Home Depot,Subscriptions,2025-07-12,Recurring charge
+309.58,State Farm Insurance,Entertainment,2024-09-13,
+101.37,Shell Gas,Utilities,2024-01-27,One-time expense
+258.44,Adobe,Housing,2025-07-26,
+366.21,Costco,Entertainment,2024-10-23,Emergency expense
+212.90,Adobe,Housing,2024-10-26,Regular payment
+49.58,Rent Payment,Food,2025-10-25,Impulse buy
+234.71,Starbucks,Groceries,2025-06-23,
+352.81,Nike,Travel,2025-06-19,One-time expense
+392.15,Costco,Shopping,2025-01-22,Gift
+130.86,Target,Food,2025-07-16,Weekly purchase
+335.44,Planet Fitness,Shopping,2025-02-16,Regular payment
+30.12,Airbnb,Entertainment,2025-01-02,Regular payment
+169.35,State Farm Insurance,Shopping,2025-07-27,
+151.48,Walmart,Food,2024-11-09,Weekly purchase
+485.89,Walmart,Entertainment,2025-01-03,Monthly bill
+250.09,Verizon,Subscriptions,2025-02-09,
+103.03,Comcast Internet,Housing,2025-05-02,Gift
+300.70,Chipotle,Healthcare,2025-12-03,Impulse buy
+385.37,Blue Cross Health,Utilities,2025-12-01,Weekly purchase
+466.06,Chipotle,Food,2025-05-14,Recurring charge
+254.57,Lyft,Housing,2024-03-11,Monthly bill
+253.35,Walgreens,Shopping,2025-11-06,
+258.34,Walgreens,Travel,2025-12-10,Monthly bill
+222.56,McDonalds,Entertainment,2025-01-17,
+117.86,T-Mobile,Transportation,2025-04-20,Weekly purchase
