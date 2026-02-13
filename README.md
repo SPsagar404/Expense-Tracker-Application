@@ -15,6 +15,9 @@ A full-stack personal finance application built with **Spring Boot** (Java 17) a
 | **Insights**       | Rule-based flags for high spending & duplicate subscriptions |
 | **GDPR**           | Data export & account deletion endpoints |
 | **Dashboard**      | Pie chart, bar chart, stats cards, recent transactions, quick-add |
+| **Salary Planner** | Allocate income (Needs/Wants/Savings), track real-time utilization vs plan |
+| **Subscriptions**  | Recurring expense tracking, auto-billing scheduler, waste analysis (unused/duplicates) |
+| **Drill-Down**     | Interactive budget cards navigate to filtered transactions |
 
 ---
 
@@ -98,6 +101,42 @@ Frontend runs at http://localhost:3000 and proxies API calls to http://localhost
 
 ---
 
+## 🐳 Docker Commands Reference
+
+Run these from the project root:
+
+### Start & Stop
+| Command | Description |
+|---------|-------------|
+| `docker-compose up --build` | Build & start all services (foreground) |
+| `docker-compose up -d` | Start in background (detached) |
+| `docker-compose down` | Stop & remove containers |
+| `docker-compose down -v` | Stop & remove containers + **delete volumes** (resets DB) |
+| `docker-compose stop` | Stop containers without removing |
+| `docker-compose start` | Start stopped containers |
+
+### Logs & Monitoring
+| Command | Description |
+|---------|-------------|
+| `docker-compose logs -f` | Follow logs for all services |
+| `docker-compose logs -f backend` | Follow backend logs only |
+| `docker-compose ps` | Show running containers & ports |
+
+### Maintenance
+| Command | Description |
+|---------|-------------|
+| `docker-compose build --no-cache` | Force full rebuild (ignore cache) |
+| `docker system prune -f` | Clean up unused images/containers |
+
+### Shell Access
+| Service | Command |
+|---------|---------|
+| **Backend** | `docker exec -it expense-backend sh` |
+| **Database** | `docker exec -it expense-postgres psql -U postgres -d expensemanager` |
+| **Redis** | `docker exec -it expense-redis redis-cli` |
+
+---
+
 ## 🔑 Demo Account
 
 A seeded demo user is available after running Flyway migrations:
@@ -107,7 +146,7 @@ A seeded demo user is available after running Flyway migrations:
 | Email    | demo@expensemanager.com  |
 | Password | demo1234                 |
 
-This account comes pre-loaded with 30 transactions, 7 budgets, and 5 subscriptions.
+This account comes pre-loaded with transactions, budgets, salary plans, and subscriptions.
 
 ---
 
@@ -159,14 +198,13 @@ Expense Tracker App/
 | POST   | `/api/v1/auth/login`         | No   | Login, get JWT |
 | POST   | `/api/v1/auth/refresh`       | No   | Refresh access token |
 | GET    | `/api/v1/transactions`       | Yes  | List with filters & pagination |
-| POST   | `/api/v1/transactions`       | Yes  | Create transaction |
-| PUT    | `/api/v1/transactions/{id}`  | Yes  | Update transaction |
-| DELETE | `/api/v1/transactions/{id}`  | Yes  | Delete transaction |
 | POST   | `/api/v1/transactions/import-csv` | Yes | Import CSV |
 | GET    | `/api/v1/budgets`            | Yes  | List budgets |
-| POST   | `/api/v1/budgets`            | Yes  | Create budget |
-| PUT    | `/api/v1/budgets/{id}`       | Yes  | Update budget |
-| DELETE | `/api/v1/budgets/{id}`       | Yes  | Delete budget |
+| POST   | `/api/v1/salary`             | Yes  | Create monthly salary plan |
+| GET    | `/api/v1/salary/{y}/{m}`     | Yes  | Get monthly allocations |
+| POST   | `/api/v1/subscriptions`      | Yes  | Add subscription |
+| GET    | `/api/v1/subscriptions`      | Yes  | List subscriptions |
+| GET    | `/api/v1/subscriptions/waste-analysis` | Yes | Suggest unused subs |
 | GET    | `/api/v1/reports/monthly`    | Yes  | Monthly report |
 | GET    | `/api/v1/insights/summary`   | Yes  | Spending insights |
 | GET    | `/api/v1/gdpr/export`        | Yes  | Export user data |
@@ -202,8 +240,8 @@ npx vitest run
 | `REDIS_HOST` | localhost | Redis host |
 | `REDIS_PORT` | 6379 | Redis port |
 | `JWT_SECRET` | — | JWT signing secret (min 32 chars) |
-| `JWT_ACCESS_TOKEN_EXPIRATION` | 900000 | Access token TTL (ms) |
-| `JWT_REFRESH_TOKEN_EXPIRATION` | 604800000 | Refresh token TTL (ms) |
+| `JWT_ACCESS_TOKEN_EXPIRATION` | 3600000 | Access token TTL (1 hour) |
+| `JWT_REFRESH_TOKEN_EXPIRATION` | 604800000 | Refresh token TTL (7 days) |
 | `CORS_ORIGINS` | http://localhost:3000 | Allowed CORS origins |
 
 ---
