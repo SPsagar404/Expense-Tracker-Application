@@ -8,6 +8,8 @@ import {
     ArrowRightOnRectangleIcon,
     Bars3Icon,
     XMarkIcon,
+    BanknotesIcon,
+    ArrowPathIcon,
 } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 
@@ -15,6 +17,8 @@ const navItems = [
     { to: '/', icon: HomeIcon, label: 'Dashboard' },
     { to: '/transactions', icon: CreditCardIcon, label: 'Transactions' },
     { to: '/budgets', icon: ChartBarIcon, label: 'Budgets' },
+    { to: '/salary', icon: BanknotesIcon, label: 'Salary Planner' },
+    { to: '/subscriptions', icon: ArrowPathIcon, label: 'Subscriptions' },
     { to: '/import', icon: ArrowUpTrayIcon, label: 'Import CSV' },
 ];
 

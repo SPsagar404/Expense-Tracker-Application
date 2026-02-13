@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { transactionApi } from '../api/client';
 import { PlusIcon, PencilIcon, TrashIcon, MagnifyingGlassIcon, FunnelIcon } from '@heroicons/react/24/outline';
 
@@ -16,17 +17,31 @@ interface Transaction {
 const categories = ['Food & Groceries', 'Transportation', 'Shopping', 'Entertainment', 'Utilities', 'Healthcare', 'Housing', 'Other'];
 
 export default function Transactions() {
+    const [searchParams] = useSearchParams();
     const [transactions, setTransactions] = useState<Transaction[]>([]);
     const [totalPages, setTotalPages] = useState(0);
     const [page, setPage] = useState(0);
     const [loading, setLoading] = useState(true);
 
-    // Filters
-    const [filterCategory, setFilterCategory] = useState('');
-    const [filterStartDate, setFilterStartDate] = useState('');
-    const [filterEndDate, setFilterEndDate] = useState('');
+    // Filters — pre-populate from URL query params (budget drill-down)
+    const [filterCategory, setFilterCategory] = useState(searchParams.get('category') || '');
+    const [filterStartDate, setFilterStartDate] = useState(() => {
+        const y = searchParams.get('year');
+        const m = searchParams.get('month');
+        if (y && m) return `${y}-${m.padStart(2, '0')}-01`;
+        return '';
+    });
+    const [filterEndDate, setFilterEndDate] = useState(() => {
+        const y = searchParams.get('year');
+        const m = searchParams.get('month');
+        if (y && m) {
+            const lastDay = new Date(Number(y), Number(m), 0).getDate();
+            return `${y}-${m.padStart(2, '0')}-${lastDay}`;
+        }
+        return '';
+    });
     const [searchMerchant, setSearchMerchant] = useState('');
-    const [showFilters, setShowFilters] = useState(false);
+    const [showFilters, setShowFilters] = useState(!!(searchParams.get('category') || searchParams.get('year')));
 
     // Modal
     const [showModal, setShowModal] = useState(false);

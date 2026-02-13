@@ -82,4 +82,28 @@ export const insightApi = {
     summary: () => client.get('/insights/summary'),
 };
 
+// Salary Allocation API
+export const salaryApi = {
+    savePlan: (data: Record<string, unknown>[]) =>
+        client.post('/salary', data),
+    addAllocation: (id: number, data: Record<string, unknown>) =>
+        client.post(`/salary/${id}/allocate`, data),
+    getAllocations: (year: number, month: number) =>
+        client.get(`/salary/${year}/${month}`),
+    getSummary: (year: number, month: number) =>
+        client.get('/reports/salary-summary', { params: { year, month } }),
+};
+
+// Subscription API
+export const subscriptionApi = {
+    list: () => client.get('/subscriptions'),
+    create: (data: Record<string, unknown>) =>
+        client.post('/subscriptions', data),
+    update: (id: number, data: Record<string, unknown>) =>
+        client.put(`/subscriptions/${id}`, data),
+    delete: (id: number) => client.delete(`/subscriptions/${id}`),
+    summary: () => client.get('/subscriptions/summary'),
+    wasteAnalysis: () => client.get('/subscriptions/waste-analysis'),
+};
+
 export default client;

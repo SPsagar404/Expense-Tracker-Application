@@ -29,11 +29,21 @@ public class Subscription {
     @Column(nullable = false, precision = 12, scale = 2)
     private BigDecimal amount;
 
-    @Column(nullable = false)
-    private String interval;
+    @Column(length = 100)
+    private String category;
+
+    @Column(nullable = false, length = 50)
+    private String interval; // MONTHLY, WEEKLY, YEARLY
 
     @Column(name = "next_billing_date")
     private LocalDate nextBillingDate;
+
+    @Column(name = "last_billed_date")
+    private LocalDate lastBilledDate;
+
+    @Column(name = "auto_generate_transaction")
+    @Builder.Default
+    private Boolean autoGenerateTransaction = false;
 
     @Column(nullable = false)
     @Builder.Default

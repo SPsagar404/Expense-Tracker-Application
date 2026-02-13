@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { reportApi, transactionApi } from '../api/client';
+import { reportApi, transactionApi, salaryApi, subscriptionApi } from '../api/client';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { PlusIcon, ArrowTrendingUpIcon, ArrowTrendingDownIcon } from '@heroicons/react/24/outline';
 
@@ -36,6 +36,12 @@ export default function Dashboard() {
         amount: '', merchant: '', category: 'Food & Groceries',
         transactionDate: new Date().toISOString().split('T')[0], notes: '',
     });
+    const [salarySummary, setSalarySummary] = useState<{
+        totalSalary: number; totalPlanned: number; totalActualSpent: number; totalSavings: number;
+    } | null>(null);
+    const [subSummary, setSubSummary] = useState<{
+        totalMonthlyCommitment: number; activeSubscriptions: number; upcomingIn7Days: unknown[];
+    } | null>(null);
 
     const now = new Date();
 
@@ -64,6 +70,16 @@ export default function Dashboard() {
             setTrendData(weeklyData);
 
             setRecentTransactions(txnRes.data.data?.content || []);
+
+            // Fetch salary & subscription summaries (non-blocking)
+            try {
+                const salaryRes = await salaryApi.getSummary(now.getFullYear(), now.getMonth() + 1);
+                setSalarySummary(salaryRes.data.data);
+            } catch { /* no salary plan */ }
+            try {
+                const subRes = await subscriptionApi.summary();
+                setSubSummary(subRes.data.data);
+            } catch { /* no subscriptions */ }
         } catch (err) {
             console.error('Failed to load dashboard', err);
         } finally {
@@ -260,6 +276,70 @@ export default function Dashboard() {
                         <p className="text-text-muted text-center py-4">No transactions yet</p>
                     )}
                 </div>
+            </div>
+
+            {/* New Feature Cards Row */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                {/* Salary Utilization */}
+                {salarySummary && salarySummary.totalSalary > 0 && (
+                    <div className="card">
+                        <h2 className="text-lg font-semibold mb-4">💰 Salary Utilization</h2>
+                        <div className="grid grid-cols-2 gap-4 mb-4">
+                            <div>
+                                <p className="text-xs text-text-muted">Total Salary</p>
+                                <p className="text-xl font-bold" style={{ color: '#6366f1' }}>₹{salarySummary.totalSalary.toLocaleString()}</p>
+                            </div>
+                            <div>
+                                <p className="text-xs text-text-muted">Actual Spent</p>
+                                <p className="text-xl font-bold" style={{ color: '#f59e0b' }}>₹{salarySummary.totalActualSpent.toLocaleString()}</p>
+                            </div>
+                            <div>
+                                <p className="text-xs text-text-muted">Planned</p>
+                                <p className="text-lg font-semibold" style={{ color: '#0ea5e9' }}>₹{salarySummary.totalPlanned.toLocaleString()}</p>
+                            </div>
+                            <div>
+                                <p className="text-xs text-text-muted">Savings</p>
+                                <p className="text-lg font-semibold" style={{ color: salarySummary.totalSavings >= 0 ? '#22c55e' : '#ef4444' }}>
+                                    ₹{salarySummary.totalSavings.toLocaleString()}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="progress-bar">
+                            <div className="progress-fill" style={{
+                                width: `${Math.min((salarySummary.totalActualSpent / salarySummary.totalSalary) * 100, 100)}%`,
+                                background: salarySummary.totalActualSpent <= salarySummary.totalSalary
+                                    ? 'linear-gradient(90deg, #6366f1, #818cf8)'
+                                    : '#ef4444',
+                            }} />
+                        </div>
+                        <p className="text-xs text-text-muted mt-2 text-right">
+                            {((salarySummary.totalActualSpent / salarySummary.totalSalary) * 100).toFixed(0)}% utilized
+                        </p>
+                    </div>
+                )}
+
+                {/* Recurring Expenses */}
+                {subSummary && (
+                    <div className="card">
+                        <h2 className="text-lg font-semibold mb-4">🔄 Recurring Expenses</h2>
+                        <div className="grid grid-cols-3 gap-4">
+                            <div className="text-center">
+                                <p className="text-xs text-text-muted">Monthly</p>
+                                <p className="text-xl font-bold" style={{ color: '#6366f1' }}>₹{subSummary.totalMonthlyCommitment.toLocaleString()}</p>
+                            </div>
+                            <div className="text-center">
+                                <p className="text-xs text-text-muted">Active</p>
+                                <p className="text-xl font-bold" style={{ color: '#22c55e' }}>{subSummary.activeSubscriptions}</p>
+                            </div>
+                            <div className="text-center">
+                                <p className="text-xs text-text-muted">Due Soon</p>
+                                <p className="text-xl font-bold" style={{ color: subSummary.upcomingIn7Days.length > 0 ? '#f59e0b' : '#94a3b8' }}>
+                                    {subSummary.upcomingIn7Days.length}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
 
             {/* Quick Add Modal */}

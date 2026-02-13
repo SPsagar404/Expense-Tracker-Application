@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { budgetApi } from '../api/client';
 import { PlusIcon, TrashIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
 
@@ -25,6 +26,7 @@ export default function Budgets() {
     });
 
     const now = new Date();
+    const navigate = useNavigate();
 
     useEffect(() => {
         loadBudgets();
@@ -99,9 +101,11 @@ export default function Budgets() {
             {/* Budget Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {budgets.map((budget) => (
-                    <div key={budget.id} className="card-hover relative group">
+                    <div key={budget.id} className="card-hover relative group cursor-pointer"
+                        onClick={() => navigate(`/transactions?category=${encodeURIComponent(budget.category)}&year=${budget.year}&month=${budget.month}`)}
+                    >
                         <button
-                            onClick={() => handleDelete(budget.id)}
+                            onClick={(e) => { e.stopPropagation(); handleDelete(budget.id); }}
                             className="absolute top-4 right-4 p-2 opacity-0 group-hover:opacity-100 hover:bg-danger/10 rounded-lg transition-all"
                         >
                             <TrashIcon className="w-4 h-4 text-danger" />
@@ -140,7 +144,7 @@ export default function Budgets() {
 
                         <div className="flex items-center justify-between mt-3">
                             <span className={`text-sm font-semibold ${budget.utilizationPercentage >= 100 ? 'text-danger' :
-                                    budget.utilizationPercentage >= 80 ? 'text-accent' : 'text-success'
+                                budget.utilizationPercentage >= 80 ? 'text-accent' : 'text-success'
                                 }`}>
                                 {budget.utilizationPercentage?.toFixed(0)}% used
                             </span>
