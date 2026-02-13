@@ -43,7 +43,7 @@ services:
       JWT_SECRET: ${JWT_SECRET:-YourSuperSecretKeyForJwtTokenGeneration2024MustBeLongEnough!}
       JWT_ACCESS_TOKEN_EXPIRATION: ${JWT_ACCESS_TOKEN_EXPIRATION:-900000}
       JWT_REFRESH_TOKEN_EXPIRATION: ${JWT_REFRESH_TOKEN_EXPIRATION:-604800000}
-      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000,http://localhost}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000,http://localhost,https://calceiform-gulfy-orval.ngrok-free.dev}
     ports:
       - "8080:8080"
     depends_on:

@@ -16,6 +16,8 @@ public interface SubscriptionRepository extends JpaRepository<Subscription, Long
 
     List<Subscription> findByActiveTrueAndAutoGenerateTransactionTrueAndNextBillingDate(LocalDate date);
 
+    List<Subscription> findByActiveTrueAndNextBillingDate(LocalDate date);
+
     List<Subscription> findByUserIdAndMerchantIgnoreCase(Long userId, String merchant);
 
     long countByUserIdAndActiveTrue(Long userId);

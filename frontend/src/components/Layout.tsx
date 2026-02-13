@@ -10,8 +10,10 @@ import {
     XMarkIcon,
     BanknotesIcon,
     ArrowPathIcon,
+    BellIcon,
 } from '@heroicons/react/24/outline';
 import { useState } from 'react';
+import NotificationBell from './NotificationBell';
 
 const navItems = [
     { to: '/', icon: HomeIcon, label: 'Dashboard' },
@@ -20,6 +22,7 @@ const navItems = [
     { to: '/salary', icon: BanknotesIcon, label: 'Salary Planner' },
     { to: '/subscriptions', icon: ArrowPathIcon, label: 'Subscriptions' },
     { to: '/import', icon: ArrowUpTrayIcon, label: 'Import CSV' },
+    { to: '/notifications', icon: BellIcon, label: 'Notifications' },
 ];
 
 export default function Layout() {
@@ -98,6 +101,13 @@ export default function Layout() {
                             <p className="text-xs text-text-muted truncate">{user?.email}</p>
                         </div>
                     </div>
+                    <NavLink
+                        to="/settings/notifications"
+                        onClick={() => setSidebarOpen(false)}
+                        className="sidebar-link w-full mt-2"
+                    >
+                        <span className="text-sm">Notification Settings</span>
+                    </NavLink>
                     <button
                         onClick={handleLogout}
                         className="sidebar-link w-full mt-2 text-danger hover:text-danger hover:bg-danger/10"
@@ -122,8 +132,16 @@ export default function Layout() {
                         <h1 className="text-lg font-bold bg-gradient-to-r from-primary-light to-secondary bg-clip-text text-transparent">
                             ExpenseTracker
                         </h1>
+                        <div className="ml-auto">
+                            <NotificationBell />
+                        </div>
                     </div>
                 </header>
+
+                {/* Desktop header bar */}
+                <div className="hidden lg:flex items-center justify-end px-8 pt-6">
+                    <NotificationBell />
+                </div>
 
                 <div className="p-4 lg:p-8 max-w-7xl mx-auto">
                     <Outlet />

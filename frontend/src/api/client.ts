@@ -106,4 +106,30 @@ export const subscriptionApi = {
     wasteAnalysis: () => client.get('/subscriptions/waste-analysis'),
 };
 
+// Notification API
+export interface NotificationPreferences {
+    emailEnabled: boolean;
+    pushEnabled: boolean;
+    inAppEnabled: boolean;
+    budgetAlertEnabled: boolean;
+    subscriptionAlertEnabled: boolean;
+    goalAlertEnabled: boolean;
+    largeExpenseAlertEnabled: boolean;
+}
+
+export const notificationsApi = {
+    list: (params?: Record<string, string | number>) =>
+        client.get('/notifications', { params }),
+    unreadCount: () =>
+        client.get('/notifications/unread-count'),
+    markRead: (id: number) =>
+        client.put(`/notifications/${id}/mark-read`),
+    createCustom: (data: { title: string; message: string; scheduledAt: string }) =>
+        client.post('/notifications/custom', data),
+    getPreferences: () =>
+        client.get('/notification-preferences'),
+    updatePreferences: (data: NotificationPreferences) =>
+        client.put('/notification-preferences', data),
+};
+
 export default client;

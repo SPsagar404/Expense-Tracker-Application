@@ -9,6 +9,7 @@ import com.expensemanager.exception.ResourceNotFoundException;
 import com.expensemanager.repository.AccountRepository;
 import com.expensemanager.repository.TransactionRepository;
 import com.expensemanager.repository.UserRepository;
+import com.expensemanager.notification.service.NotificationService;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import lombok.RequiredArgsConstructor;
@@ -36,6 +37,7 @@ public class TransactionService {
     private final TransactionRepository transactionRepository;
     private final UserRepository userRepository;
     private final AccountRepository accountRepository;
+    private final NotificationService notificationService;
 
     public Page<TransactionDto> getTransactions(Long userId, String category,
             LocalDate startDate, LocalDate endDate,
@@ -81,6 +83,10 @@ public class TransactionService {
 
         transaction = transactionRepository.save(transaction);
         log.info("Transaction created: id={}, user={}, amount={}", transaction.getId(), userId, dto.getAmount());
+
+        // Trigger notifications related to this transaction (budget, salary, large expense)
+        notificationService.handleTransactionCreated(transaction);
+
         return toDto(transaction);
     }
 

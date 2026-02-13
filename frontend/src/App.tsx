@@ -9,6 +9,8 @@ import Budgets from './pages/Budgets';
 import CsvImport from './pages/CsvImport';
 import SalaryPlanner from './pages/SalaryPlanner';
 import Subscriptions from './pages/Subscriptions';
+import Notifications from './pages/Notifications';
+import NotificationSettings from './pages/NotificationSettings';
 import './index.css';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
@@ -50,6 +52,8 @@ function AppRoutes() {
         <Route path="budgets" element={<Budgets />} />
         <Route path="salary" element={<SalaryPlanner />} />
         <Route path="subscriptions" element={<Subscriptions />} />
+        <Route path="notifications" element={<Notifications />} />
+        <Route path="settings/notifications" element={<NotificationSettings />} />
         <Route path="import" element={<CsvImport />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
