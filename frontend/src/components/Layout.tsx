@@ -1,11 +1,9 @@
-import { NavLink, Outlet, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { NavLink, Outlet } from 'react-router-dom';
 import {
     HomeIcon,
     CreditCardIcon,
     ChartBarIcon,
     ArrowUpTrayIcon,
-    ArrowRightOnRectangleIcon,
     Bars3Icon,
     XMarkIcon,
     BanknotesIcon,
@@ -14,6 +12,8 @@ import {
 } from '@heroicons/react/24/outline';
 import { useState } from 'react';
 import NotificationBell from './NotificationBell';
+import UserProfileDropdown from './UserProfileDropdown';
+import { useCurrency } from '../context/CurrencyContext';
 
 const navItems = [
     { to: '/', icon: HomeIcon, label: 'Dashboard' },
@@ -26,14 +26,8 @@ const navItems = [
 ];
 
 export default function Layout() {
-    const { user, logout } = useAuth();
-    const navigate = useNavigate();
     const [sidebarOpen, setSidebarOpen] = useState(false);
-
-    const handleLogout = () => {
-        logout();
-        navigate('/login');
-    };
+    const { currency, supported, setCurrency } = useCurrency();
 
     return (
         <div className="flex h-screen overflow-hidden">
@@ -88,33 +82,11 @@ export default function Layout() {
                     ))}
                 </nav>
 
-                {/* User section */}
+                {/* Sidebar Footer */}
                 <div className="px-4 py-4 border-t border-primary/10">
-                    <div className="flex items-center gap-3 px-4 py-3">
-                        <div className="w-9 h-9 bg-gradient-to-br from-primary to-accent rounded-full flex items-center justify-center">
-                            <span className="text-white text-sm font-bold">
-                                {user?.name?.charAt(0).toUpperCase()}
-                            </span>
-                        </div>
-                        <div className="flex-1 min-w-0">
-                            <p className="text-sm font-medium truncate">{user?.name}</p>
-                            <p className="text-xs text-text-muted truncate">{user?.email}</p>
-                        </div>
-                    </div>
-                    <NavLink
-                        to="/settings/notifications"
-                        onClick={() => setSidebarOpen(false)}
-                        className="sidebar-link w-full mt-2"
-                    >
-                        <span className="text-sm">Notification Settings</span>
-                    </NavLink>
-                    <button
-                        onClick={handleLogout}
-                        className="sidebar-link w-full mt-2 text-danger hover:text-danger hover:bg-danger/10"
-                    >
-                        <ArrowRightOnRectangleIcon className="w-5 h-5" />
-                        <span>Logout</span>
-                    </button>
+                    <p className="text-[10px] text-text-muted text-center uppercase tracking-widest font-semibold opacity-50">
+                        v1.0.0
+                    </p>
                 </div>
             </aside>
 
@@ -132,15 +104,40 @@ export default function Layout() {
                         <h1 className="text-lg font-bold bg-gradient-to-r from-primary-light to-secondary bg-clip-text text-transparent">
                             ExpenseTracker
                         </h1>
-                        <div className="ml-auto">
+                        <div className="ml-auto flex items-center gap-2">
+                            <select
+                                value={currency}
+                                onChange={(e) => setCurrency(e.target.value)}
+                                className="bg-bg-card border border-primary/20 text-[11px] rounded-lg px-2 py-1 text-text-muted focus:outline-none focus:ring-1 focus:ring-primary/60"
+                            >
+                                {supported.map((c) => (
+                                    <option key={c} value={c}>
+                                        {c}
+                                    </option>
+                                ))}
+                            </select>
                             <NotificationBell />
+                            <UserProfileDropdown />
                         </div>
                     </div>
                 </header>
 
                 {/* Desktop header bar */}
-                <div className="hidden lg:flex items-center justify-end px-8 pt-6">
+                <div className="hidden lg:flex items-center justify-end gap-4 px-8 pt-6">
+                    {/* Currency selector */}
+                    <select
+                        value={currency}
+                        onChange={(e) => setCurrency(e.target.value)}
+                        className="bg-bg-card border border-primary/20 text-xs rounded-lg px-3 py-1.5 text-text-muted focus:outline-none focus:ring-2 focus:ring-primary/60"
+                    >
+                        {supported.map((c) => (
+                            <option key={c} value={c}>
+                                {c}
+                            </option>
+                        ))}
+                    </select>
                     <NotificationBell />
+                    <UserProfileDropdown />
                 </div>
 
                 <div className="p-4 lg:p-8 max-w-7xl mx-auto">

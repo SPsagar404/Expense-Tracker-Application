@@ -22,8 +22,7 @@ import com.expensemanager.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -41,8 +40,6 @@ import java.util.Optional;
 @Slf4j
 public class NotificationService {
 
-    private static final String UNREAD_COUNT_CACHE = "notificationsUnreadCount";
-
     private final NotificationRepository notificationRepo;
     private final UserNotificationPreferencesRepository preferencesRepo;
     private final UserRepository userRepo;
@@ -52,6 +49,7 @@ public class NotificationService {
     private final SalaryAllocationRepository salaryRepo;
     private final EmailNotificationService emailService;
     private final PushNotificationService pushNotificationService;
+    private final RedisTemplate<String, Object> redisTemplate;
 
     @Value("${app.notifications.large-expense-threshold:5000}")
     private BigDecimal largeExpenseThreshold;
@@ -66,14 +64,19 @@ public class NotificationService {
         return page.map(this::toDto);
     }
 
-    @Cacheable(cacheNames = UNREAD_COUNT_CACHE, key = "#userId")
     @Transactional(readOnly = true)
     public long getUnreadCount(Long userId) {
-        return notificationRepo.countByUserIdAndReadFalse(userId);
+        String key = buildUnreadKey(userId);
+        Object cached = redisTemplate.opsForValue().get(key);
+        if (cached instanceof Number number) {
+            return number.longValue();
+        }
+        long count = notificationRepo.countByUserIdAndReadFalse(userId);
+        redisTemplate.opsForValue().set(key, count);
+        return count;
     }
 
     @Transactional
-    @CacheEvict(cacheNames = UNREAD_COUNT_CACHE, key = "#userId")
     public void markAsRead(Long userId, Long notificationId) {
         Notification notification = notificationRepo.findById(notificationId)
                 .orElseThrow(() -> new ResourceNotFoundException("Notification", notificationId));
@@ -84,10 +87,10 @@ public class NotificationService {
 
         notification.setRead(true);
         notificationRepo.save(notification);
+        evictUnreadCount(userId);
     }
 
     @Transactional
-    @CacheEvict(cacheNames = UNREAD_COUNT_CACHE, key = "#userId")
     public void createCustomReminder(Long userId, CreateCustomNotificationRequest request) {
         User user = userRepo.findById(userId)
                 .orElseThrow(() -> new ResourceNotFoundException("User", userId));
@@ -102,6 +105,7 @@ public class NotificationService {
 
         notificationRepo.save(notification);
         log.info("Custom reminder created for user {} at {}", userId, request.getScheduledAt());
+        evictUnreadCount(userId);
     }
 
     @Transactional(readOnly = true)
@@ -141,7 +145,6 @@ public class NotificationService {
      * - Large/unusual expense
      */
     @Transactional
-    @CacheEvict(cacheNames = UNREAD_COUNT_CACHE, key = "#transaction.user.id")
     public void handleTransactionCreated(Transaction transaction) {
         Long userId = transaction.getUser().getId();
         LocalDate txDate = transaction.getTransactionDate();
@@ -334,7 +337,6 @@ public class NotificationService {
     // Internal helpers
     // -------------------------------------------------------------------------
 
-    @CacheEvict(cacheNames = UNREAD_COUNT_CACHE, key = "#userId")
     protected Notification createNotificationInternal(
             Long userId,
             NotificationType type,
@@ -357,6 +359,7 @@ public class NotificationService {
 
         Notification saved = notificationRepo.save(notification);
         log.debug("Created notification {} of type {} for user {}", saved.getId(), type, userId);
+        evictUnreadCount(userId);
         return saved;
     }
 
@@ -402,6 +405,14 @@ public class NotificationService {
                 .goalAlertEnabled(prefs.isGoalAlertEnabled())
                 .largeExpenseAlertEnabled(prefs.isLargeExpenseAlertEnabled())
                 .build();
+    }
+
+    private String buildUnreadKey(Long userId) {
+        return "user:" + userId + ":notifications:unread";
+    }
+
+    private void evictUnreadCount(Long userId) {
+        redisTemplate.delete(buildUnreadKey(userId));
     }
 }
 

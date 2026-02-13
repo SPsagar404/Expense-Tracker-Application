@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { reportApi, transactionApi, salaryApi, subscriptionApi } from '../api/client';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, BarChart, Bar, XAxis, YAxis, CartesianGrid } from 'recharts';
 import { PlusIcon, ArrowTrendingUpIcon, ArrowTrendingDownIcon } from '@heroicons/react/24/outline';
+import { useCurrency } from '../context/CurrencyContext';
+import { CATEGORIES } from '../constants/categories';
 
 const COLORS = ['#6366f1', '#0ea5e9', '#f59e0b', '#22c55e', '#ef4444', '#ec4899', '#8b5cf6', '#14b8a6'];
 
@@ -42,6 +44,7 @@ export default function Dashboard() {
     const [subSummary, setSubSummary] = useState<{
         totalMonthlyCommitment: number; activeSubscriptions: number; upcomingIn7Days: unknown[];
     } | null>(null);
+    const { format } = useCurrency();
 
     const now = new Date();
 
@@ -107,8 +110,6 @@ export default function Dashboard() {
         }
     };
 
-    const categories = ['Food & Groceries', 'Transportation', 'Shopping', 'Entertainment', 'Utilities', 'Healthcare', 'Housing', 'Other'];
-
     if (loading) {
         return (
             <div className="flex items-center justify-center h-96">
@@ -140,7 +141,7 @@ export default function Dashboard() {
                         <div>
                             <p className="text-text-muted text-sm">Total Spent</p>
                             <p className="text-3xl font-bold mt-1 bg-gradient-to-r from-danger to-accent bg-clip-text text-transparent">
-                                ${totalSpent.toLocaleString('en-US', { minimumFractionDigits: 2 })}
+                                {format(totalSpent)}
                             </p>
                         </div>
                         <div className="w-12 h-12 bg-danger/10 rounded-xl flex items-center justify-center">
@@ -203,7 +204,7 @@ export default function Dashboard() {
                                             borderRadius: '12px',
                                             color: '#e2e8f0',
                                         }}
-                                        formatter={(value: number) => `$${value.toFixed(2)}`}
+                                        formatter={(value: number) => format(value)}
                                     />
                                 </PieChart>
                             </ResponsiveContainer>
@@ -233,7 +234,7 @@ export default function Dashboard() {
                             <BarChart data={trendData}>
                                 <CartesianGrid strokeDasharray="3 3" stroke="#312e81" />
                                 <XAxis dataKey="date" stroke="#94a3b8" fontSize={12} />
-                                <YAxis stroke="#94a3b8" fontSize={12} tickFormatter={(v) => `$${v}`} />
+                                <YAxis stroke="#94a3b8" fontSize={12} tickFormatter={(v) => format(v)} />
                                 <Tooltip
                                     contentStyle={{
                                         background: '#1a1545',
@@ -241,7 +242,7 @@ export default function Dashboard() {
                                         borderRadius: '12px',
                                         color: '#e2e8f0',
                                     }}
-                                    formatter={(value: number) => `$${value.toFixed(2)}`}
+                                    formatter={(value: number) => format(value)}
                                 />
                                 <Bar dataKey="amount" fill="#6366f1" radius={[6, 6, 0, 0]} />
                             </BarChart>
@@ -268,7 +269,7 @@ export default function Dashboard() {
                                 </div>
                             </div>
                             <span className="font-semibold text-danger">
-                                -${txn.amount?.toFixed(2)}
+                                -{format(txn.amount)}
                             </span>
                         </div>
                     ))}
@@ -287,20 +288,20 @@ export default function Dashboard() {
                         <div className="grid grid-cols-2 gap-4 mb-4">
                             <div>
                                 <p className="text-xs text-text-muted">Total Salary</p>
-                                <p className="text-xl font-bold" style={{ color: '#6366f1' }}>₹{salarySummary.totalSalary.toLocaleString()}</p>
+                                <p className="text-xl font-bold" style={{ color: '#6366f1' }}>{format(salarySummary.totalSalary)}</p>
                             </div>
                             <div>
                                 <p className="text-xs text-text-muted">Actual Spent</p>
-                                <p className="text-xl font-bold" style={{ color: '#f59e0b' }}>₹{salarySummary.totalActualSpent.toLocaleString()}</p>
+                                <p className="text-xl font-bold" style={{ color: '#f59e0b' }}>{format(salarySummary.totalActualSpent)}</p>
                             </div>
                             <div>
                                 <p className="text-xs text-text-muted">Planned</p>
-                                <p className="text-lg font-semibold" style={{ color: '#0ea5e9' }}>₹{salarySummary.totalPlanned.toLocaleString()}</p>
+                                <p className="text-lg font-semibold" style={{ color: '#0ea5e9' }}>{format(salarySummary.totalPlanned)}</p>
                             </div>
                             <div>
                                 <p className="text-xs text-text-muted">Savings</p>
                                 <p className="text-lg font-semibold" style={{ color: salarySummary.totalSavings >= 0 ? '#22c55e' : '#ef4444' }}>
-                                    ₹{salarySummary.totalSavings.toLocaleString()}
+                                    {format(salarySummary.totalSavings)}
                                 </p>
                             </div>
                         </div>
@@ -325,7 +326,7 @@ export default function Dashboard() {
                         <div className="grid grid-cols-3 gap-4">
                             <div className="text-center">
                                 <p className="text-xs text-text-muted">Monthly</p>
-                                <p className="text-xl font-bold" style={{ color: '#6366f1' }}>₹{subSummary.totalMonthlyCommitment.toLocaleString()}</p>
+                                <p className="text-xl font-bold" style={{ color: '#6366f1' }}>{format(subSummary.totalMonthlyCommitment)}</p>
                             </div>
                             <div className="text-center">
                                 <p className="text-xs text-text-muted">Active</p>
@@ -376,7 +377,7 @@ export default function Dashboard() {
                                     onChange={(e) => setQuickForm({ ...quickForm, category: e.target.value })}
                                     className="input-field"
                                 >
-                                    {categories.map((c) => <option key={c} value={c}>{c}</option>)}
+                                    {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
                                 </select>
                             </div>
                             <div>

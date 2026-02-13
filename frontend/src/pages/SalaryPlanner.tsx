@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { salaryApi } from '../api/client';
+import { CATEGORIES } from '../constants/categories';
 
 interface Allocation {
     category: string;
@@ -28,12 +29,6 @@ interface SalarySummary {
     unallocatedAmount: number;
     allocations: SummaryAllocation[];
 }
-
-const CATEGORIES = [
-    'Rent', 'Groceries', 'Food', 'Transportation', 'Utilities', 'Healthcare',
-    'EMI', 'Savings', 'Investments', 'Entertainment', 'Shopping', 'Education',
-    'Personal', 'Subscriptions', 'Others',
-];
 
 export default function SalaryPlanner() {
     const now = new Date();

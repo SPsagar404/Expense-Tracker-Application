@@ -4,6 +4,7 @@ import com.expensemanager.dto.ApiResponse;
 import com.expensemanager.notification.dto.CreateCustomNotificationRequest;
 import com.expensemanager.notification.dto.NotificationDto;
 import com.expensemanager.notification.service.NotificationService;
+import com.expensemanager.notification.dto.UnreadCountResponse;
 import com.expensemanager.util.SecurityUtils;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -36,10 +37,10 @@ public class NotificationController {
 
     @GetMapping("/unread-count")
     @Operation(summary = "Get unread notification count")
-    public ResponseEntity<ApiResponse<Long>> getUnreadCount() {
+    public ResponseEntity<ApiResponse<UnreadCountResponse>> getUnreadCount() {
         Long userId = SecurityUtils.getCurrentUserId();
         long count = notificationService.getUnreadCount(userId);
-        return ResponseEntity.ok(ApiResponse.success(count));
+        return ResponseEntity.ok(ApiResponse.success(new UnreadCountResponse(count)));
     }
 
     @PutMapping("/{id}/mark-read")

@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { budgetApi } from '../api/client';
 import { PlusIcon, TrashIcon, ExclamationTriangleIcon } from '@heroicons/react/24/outline';
+import { CATEGORIES } from '../constants/categories';
 
 interface Budget {
     id: number;
@@ -13,8 +14,6 @@ interface Budget {
     remaining: number;
     utilizationPercentage: number;
 }
-
-const categories = ['Food & Groceries', 'Transportation', 'Shopping', 'Entertainment', 'Utilities', 'Healthcare', 'Housing', 'Other'];
 
 export default function Budgets() {
     const [budgets, setBudgets] = useState<Budget[]>([]);
@@ -191,7 +190,7 @@ export default function Budgets() {
                                     onChange={(e) => setForm({ ...form, category: e.target.value })}
                                     className="input-field"
                                 >
-                                    {categories.map((c) => <option key={c} value={c}>{c}</option>)}
+                                    {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
                                 </select>
                             </div>
                             <div className="grid grid-cols-2 gap-4">

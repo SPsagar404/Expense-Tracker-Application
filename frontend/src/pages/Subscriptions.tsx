@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { subscriptionApi } from '../api/client';
+import { CATEGORIES } from '../constants/categories';
 
 interface Sub {
     id: number;
@@ -28,11 +29,6 @@ const EMPTY_FORM = {
     merchant: '', amount: '', category: '', interval: 'MONTHLY',
     nextBillingDate: '', autoGenerateTransaction: false, active: true,
 };
-
-const CATEGORIES = [
-    'Entertainment', 'Food', 'Utilities', 'Healthcare', 'Shopping',
-    'Education', 'Transportation', 'Subscriptions', 'Others',
-];
 
 export default function Subscriptions() {
     const [subs, setSubs] = useState<Sub[]>([]);
@@ -165,55 +161,88 @@ export default function Subscriptions() {
 
             {/* Subscriptions list */}
             <div className="card overflow-x-auto">
-                <table className="w-full text-sm">
+                <table className="w-full table-fixed text-sm">
                     <thead>
                         <tr style={{ color: '#94a3b8', borderBottom: '1px solid rgba(99,102,241,0.2)' }}>
-                            <th className="text-left py-2">Merchant</th>
-                            <th className="text-right py-2">Amount</th>
-                            <th className="text-left py-2">Category</th>
-                            <th className="text-left py-2">Interval</th>
-                            <th className="text-left py-2">Next Billing</th>
+                            <th className="text-center py-2">Merchant</th>
+                            <th className="text-center py-2">Amount</th>
+                            <th className="text-center py-2">Category</th>
+                            <th className="text-center py-2">Interval</th>
+                            <th className="text-center py-2">Next Billing</th>
                             <th className="text-center py-2">Auto-Bill</th>
                             <th className="text-center py-2">Status</th>
-                            <th className="text-right py-2">Actions</th>
+                            <th className="text-center py-2">Actions</th>
                         </tr>
                     </thead>
+
                     <tbody>
                         {subs.map(sub => (
-                            <tr key={sub.id} style={{
-                                borderBottom: '1px solid rgba(99,102,241,0.1)',
-                                opacity: sub.active ? 1 : 0.5,
-                            }}>
-                                <td className="py-3 font-medium" style={{ color: '#e2e8f0' }}>{sub.merchant}</td>
-                                <td className="text-right py-3 font-semibold" style={{ color: '#818cf8' }}>
+                            <tr
+                                key={sub.id}
+                                className="text-center"
+                                style={{
+                                    borderBottom: '1px solid rgba(99,102,241,0.1)',
+                                    opacity: sub.active ? 1 : 0.5,
+                                }}
+                            >
+                                <td className="py-3 font-medium truncate" style={{ color: '#e2e8f0' }}>
+                                    {sub.merchant}
+                                </td>
+
+                                <td className="py-3 font-semibold truncate" style={{ color: '#818cf8' }}>
                                     ₹{sub.amount.toLocaleString()}
                                 </td>
-                                <td className="py-3" style={{ color: '#94a3b8' }}>{sub.category || '-'}</td>
-                                <td className="py-3" style={{ color: '#94a3b8' }}>{sub.interval}</td>
-                                <td className="py-3" style={{ color: '#94a3b8' }}>
+
+                                <td className="py-3 truncate" style={{ color: '#94a3b8' }}>
+                                    {sub.category || '-'}
+                                </td>
+
+                                <td className="py-3 truncate" style={{ color: '#94a3b8' }}>
+                                    {sub.interval}
+                                </td>
+
+                                <td className="py-3 truncate" style={{ color: '#94a3b8' }}>
                                     {sub.nextBillingDate || '-'}
                                 </td>
-                                <td className="text-center py-3">
+
+                                <td className="py-3">
                                     {sub.autoGenerateTransaction
                                         ? <span className="badge" style={{ background: 'rgba(34,197,94,0.15)', color: '#22c55e' }}>ON</span>
                                         : <span className="badge" style={{ background: 'rgba(148,163,184,0.15)', color: '#94a3b8' }}>OFF</span>
                                     }
                                 </td>
-                                <td className="text-center py-3">
-                                    <button onClick={() => toggleActive(sub)} className="badge cursor-pointer"
+
+                                <td className="py-3">
+                                    <button
+                                        onClick={() => toggleActive(sub)}
+                                        className="badge cursor-pointer"
                                         style={{
                                             background: sub.active ? 'rgba(34,197,94,0.15)' : 'rgba(239,68,68,0.15)',
                                             color: sub.active ? '#22c55e' : '#ef4444',
-                                        }}>
+                                        }}
+                                    >
                                         {sub.active ? 'Active' : 'Inactive'}
                                     </button>
                                 </td>
-                                <td className="text-right py-3">
-                                    <button onClick={() => openEdit(sub)} className="mr-2" style={{ color: '#818cf8' }}>Edit</button>
-                                    <button onClick={() => handleDelete(sub.id)} style={{ color: '#ef4444' }}>Delete</button>
+
+                                <td className="py-3">
+                                    <button
+                                        onClick={() => openEdit(sub)}
+                                        className="mr-2"
+                                        style={{ color: '#818cf8' }}
+                                    >
+                                        Edit
+                                    </button>
+                                    <button
+                                        onClick={() => handleDelete(sub.id)}
+                                        style={{ color: '#ef4444' }}
+                                    >
+                                        Delete
+                                    </button>
                                 </td>
                             </tr>
                         ))}
+
                         {subs.length === 0 && (
                             <tr>
                                 <td colSpan={8} className="text-center py-8" style={{ color: '#94a3b8' }}>

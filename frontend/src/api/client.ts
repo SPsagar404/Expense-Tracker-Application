@@ -132,4 +132,8 @@ export const notificationsApi = {
         client.put('/notification-preferences', data),
 };
 
+export const userApi = {
+    me: () => client.get('/users/me'),
+};
+
 export default client;

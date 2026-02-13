@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { transactionApi } from '../api/client';
 import { PlusIcon, PencilIcon, TrashIcon, MagnifyingGlassIcon, FunnelIcon } from '@heroicons/react/24/outline';
+import { CATEGORIES } from '../constants/categories';
 
 interface Transaction {
     id: number;
@@ -13,8 +14,6 @@ interface Transaction {
     notes: string;
     accountId: number | null;
 }
-
-const categories = ['Food & Groceries', 'Transportation', 'Shopping', 'Entertainment', 'Utilities', 'Healthcare', 'Housing', 'Other'];
 
 export default function Transactions() {
     const [searchParams] = useSearchParams();
@@ -174,7 +173,7 @@ export default function Transactions() {
                         className="input-field"
                     >
                         <option value="">All Categories</option>
-                        {categories.map((c) => <option key={c} value={c}>{c}</option>)}
+                        {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
                     </select>
                     <input
                         type="date"
@@ -314,7 +313,7 @@ export default function Transactions() {
                                     onChange={(e) => setForm({ ...form, category: e.target.value })}
                                     className="input-field"
                                 >
-                                    {categories.map((c) => <option key={c} value={c}>{c}</option>)}
+                                    {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
                                 </select>
                             </div>
                             <div>

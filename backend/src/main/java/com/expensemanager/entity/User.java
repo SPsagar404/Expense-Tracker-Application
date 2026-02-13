@@ -29,6 +29,10 @@ public class User {
     @Column(nullable = false)
     private String name;
 
+    @Column(name = "preferred_currency", length = 10)
+    @Builder.Default
+    private String preferredCurrency = "INR";
+
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
     private LocalDateTime createdAt;

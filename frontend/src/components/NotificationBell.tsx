@@ -31,7 +31,8 @@ export default function NotificationBell() {
                 notificationsApi.unreadCount(),
                 notificationsApi.list({ size: 5 }),
             ]);
-            setUnreadCount(countRes.data.data ?? 0);
+            const count = countRes.data.data?.unreadCount ?? 0;
+            setUnreadCount(count);
             setNotifications(listRes.data.data?.content ?? []);
         } catch (err) {
             console.error('Failed to load notifications', err);
@@ -61,7 +62,12 @@ export default function NotificationBell() {
             <button
                 type="button"
                 onClick={handleToggle}
-                className="relative p-2 rounded-full hover:bg-primary/10 text-text-muted hover:text-white transition"
+                className={`relative p-2 rounded-full transition ${
+                    unreadCount > 0
+                        ? 'text-danger animate-pulse hover:bg-danger/10'
+                        : 'text-text-muted hover:text-white hover:bg-primary/10'
+                }`}
+                title={unreadCount > 0 ? `You have ${unreadCount} new alerts` : undefined}
             >
                 {unreadCount > 0 ? (
                     <BellAlertIcon className="w-6 h-6" />
